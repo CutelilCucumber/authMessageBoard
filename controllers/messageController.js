@@ -15,8 +15,15 @@ async function createLogPost(req, res) {
   res.redirect("/");
 }
 
+async function removeLog(req, res) {
+  await db.deleteLog(req.params.id);
+
+  res.redirect('/');
+}
+
 module.exports = {
   getLogs,
   createLogGet,
-  createLogPost
+  createLogPost,
+  removeLog
 };

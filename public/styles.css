@@ -132,3 +132,19 @@ textarea:focus {
   color: #555;
   font-style: italic;
 }
+/* delete btn */
+.delete {
+  padding: 0.6rem 1rem;
+  border: 1px solid red;
+  background: #ffffff;
+  color: rgb(124, 0, 0);
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.delete:hover,
+.delete:focus {
+  background: pink;
+}

@@ -43,8 +43,13 @@ async function joinGet(req, res) {
 
 async function joinPost(req, res) {
   const { secret } = req.body;
-  if (secret === process.env.MEM_PASS){
+  if (secret === process.env.ADM_PASS){
     db.addMembership(req.user.id)
+    db.addAdmin(req.user.id)
+    res.redirect("/");
+  } else if (secret === process.env.MEM_PASS){
+    db.addMembership(req.user.id)
+    res.redirect("/");
   } else {
     res.redirect("/join");
   }

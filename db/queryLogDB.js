@@ -17,7 +17,24 @@ async function insertLog(username, message) {
   [username, message]);
 };
 
+async function deleteLog(id) {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+
+    await client.query('DELETE FROM logs WHERE id = $1', [id]);
+
+    await client.query('COMMIT');
+  } catch (err) {
+    await client.query('ROLLBACK');
+    throw err;
+  } finally {
+    client.release();
+  }
+};
+
 module.exports = {
   getAllLogs,
-  insertLog
+  insertLog,
+  deleteLog
 };

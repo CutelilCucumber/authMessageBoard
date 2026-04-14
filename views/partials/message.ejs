@@ -1,10 +1,22 @@
 <article class="log" tabindex="0">
   <header class="log-header">
-    <span class="user"><%= log.username %></span>
+    <span class="user">
+      <%= locals.user ? locals.user.member ? log.username : '■■■■■' : '■■■■■' %>
+    </span>
+    <% if (locals.user && locals.user.member) {%>
     <time class="time" datetime="<%= log.posted %>">
       <%= new Date(log.posted).toLocaleString() %>
     </time>
+      <% } else { %>
+      <span class="time">■■■■■ ■■■■■</span>
+      <%}%>
   </header>
 
   <p class="text"><%= log.message %></p>
+   <% if (locals.user && locals.user.admin) {%>
+    <a class="delete" href="/delete/<%= log.id %>">
+      Remove
+    </a>
+  <% } %>
+ 
 </article>
