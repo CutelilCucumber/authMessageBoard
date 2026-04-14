@@ -62,7 +62,7 @@ ADM_PASS=your_admin_passcode
    npm start
 ```
 
-   The app will be available at `http://localhost:3000`.
+   The app will be available at `http://localhost:8000`.
 
 ## Access Tiers
 
@@ -71,7 +71,7 @@ ADM_PASS=your_admin_passcode
 | Read messages | ✓ | ✓ | ✓ |
 | See author and timestamp | ✗ | ✓ | ✓ |
 | Delete messages | ✗ | ✗ | ✓ |
-| Create messages | ✓ | ✓ | ✓ |
+| Create messages | ✗ | ✓ | ✓ |
 
 To become a member or admin, navigate to `/upgrade` after logging in and
 enter the correct passcode. Passcodes are set in your `.env` file.
