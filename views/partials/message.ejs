@@ -1,0 +1,10 @@
+<article class="log" tabindex="0">
+  <header class="log-header">
+    <span class="user"><%= log.username %></span>
+    <time class="time" datetime="<%= log.posted %>">
+      <%= new Date(log.posted).toLocaleString() %>
+    </time>
+  </header>
+
+  <p class="text"><%= log.message %></p>
+</article>
